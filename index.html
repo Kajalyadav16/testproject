@@ -82,6 +82,9 @@ input[type=email]{font:inherit;padding:.8rem 1.1rem;border:1.5px solid var(--sag
 .article ul{padding-left:1.2rem;max-width:62ch}
 .note{background:var(--blush);border-radius:1rem;padding:1rem 1.25rem;max-width:62ch;margin-bottom:1rem}
 .note.tip{background:var(--sage-soft)}
+.mini{list-style:none;margin:.5rem 0 0;padding:0;display:grid;gap:.45rem;max-width:62ch}
+.mini li{padding-left:1.1rem;position:relative}
+.mini li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--sage)}
 /* 7. FOOTER */
 footer{background:var(--olive);color:#EDE8DA;padding:2.5rem 0 3rem;margin-top:2rem}
 footer a{color:#fff}footer p{max-width:60ch}
@@ -167,20 +170,20 @@ skincare:{name:'Skincare',title:'Skincare for beginners | Glow & Balance',desc:'
 intro:'Good skin care is mostly consistency. Start with a gentle cleanser, a moisturiser and sunscreen, then add one new thing at a time.',
 secs:[['Beginner routines','A simple morning and night routine built on cleansing, moisturising and sunscreen, with room to grow.','5-step-beginner-skincare-routine'],
 ['Affordable product guides','What to look for in a cleanser, moisturiser or sunscreen, and how to spend less without guessing.','affordable-self-care-products-under-500'],
-['Ingredient explainers','Plain-language notes on niacinamide, salicylic acid, hyaluronic acid and more: what each does and who it suits.'],
+['Ingredient explainers','Plain-language notes on niacinamide, salicylic acid, hyaluronic acid and more: what each does and who it suits.',undefined,['Niacinamide: calms redness and helps even out skin tone over time.','Salicylic acid: unclogs pores, useful for blackheads and bumps.','Hyaluronic acid: draws in moisture; suits most skin types.','Vitamin C: brightens skin and is best worn under sunscreen in the morning.']],
 ['Common skincare mistakes','Over-exfoliating, skipping sunscreen on cloudy days, changing products every week. Easy fixes for each.','skincare-mistakes-beginners-make']]},
 haircare:{name:'Haircare',title:'Haircare basics and routines | Glow & Balance',desc:'Simple haircare for frizz, dryness and everyday washing, with routines that fit Indian weather and budgets.',
 intro:'Healthy hair starts with a scalp that is clean and comfortable, and ends that are kept moisturised. Humidity, hard water and heat styling all play a part.',
-secs:[['Frizz care','Why hair frizzes in humid weather, and the small changes in drying, combing and conditioning that help most.'],
-['Dry hair routines','Gentle wash days, leave-in care and oiling that suit dry, rough or colour-treated hair.'],
-['Hair-wash guides','How often to wash, how much shampoo to use and how to condition properly, based on your scalp type.'],
+secs:[['Frizz care','Why hair frizzes in humid weather, and the small changes in drying, combing and conditioning that help most.',undefined,['Dry hair with a microfibre towel or soft cotton t-shirt instead of rubbing with a regular towel.','Apply a leave-in conditioner or a few drops of oil to damp hair, not dry hair.','Avoid brushing dry hair too often, it roughs up the cuticle and adds frizz.']],
+['Dry hair routines','Gentle wash days, leave-in care and oiling that suit dry, rough or colour-treated hair.',undefined,['Oil your scalp and lengths an hour or two before washing, not right after.','Use a sulfate-free shampoo so it cleans without stripping natural oils.','Condition every wash, focusing on the ends rather than the scalp.']],
+['Hair-wash guides','How often to wash, how much shampoo to use and how to condition properly, based on your scalp type.',undefined,['Most hair types do well with two to three washes a week, not daily.','Use lukewarm water, very hot water can dry out scalp and strands.','Rinse conditioner thoroughly, leftover product is a common cause of flat, limp hair.']],
 ['Beginner haircare','Three or four products are enough. Start here to build a routine you will actually follow.','how-to-build-a-simple-haircare-routine']]},
 wellness:{name:'Wellness',title:'Everyday wellness habits | Glow & Balance',desc:'Sleep routines, hydration, simple healthy habits and everyday self-care ideas that are easy to keep.',
 intro:'Wellness does not need a big overhaul. Small habits repeated on ordinary days, like sleep, water and a few quiet minutes, do most of the work.',
-secs:[['Sleep and routines','A steady wake-up time, a screen-free wind-down and a calmer evening, without needing a perfect schedule.'],
-['Hydration','Easy ways to drink more water through the day, from a bottle you like to habits you can attach it to.'],
-['Simple healthy habits','A short walk, a proper breakfast, stretching at your desk. Habits small enough to stick.'],
-['Everyday self-care','Low-cost ways to reset after a long day: a warm shower, a tidy space, ten minutes for yourself.']]}};
+secs:[['Sleep and routines','A steady wake-up time, a screen-free wind-down and a calmer evening, without needing a perfect schedule.',undefined,['Keep a consistent wake-up time, even on weekends, it matters more than a fixed bedtime.','Dim lights and step away from screens for 20 to 30 minutes before bed.','A short wind-down routine signals your body that it is time to rest.']],
+['Hydration','Easy ways to drink more water through the day, from a bottle you like to habits you can attach it to.',undefined,['Keep a bottle you like nearby so drinking water does not need a decision.','Pair water with habits you already have, like a glass with each meal.','Herbal tea and water-rich fruit count toward daily hydration too.']],
+['Simple healthy habits','A short walk, a proper breakfast, stretching at your desk. Habits small enough to stick.',undefined,['A 10-minute walk after a meal can do more than an occasional long workout.','Keep one meal a day screen-free so you eat without rushing.','Stretch for a few minutes between long stretches of sitting.']],
+['Everyday self-care','Low-cost ways to reset after a long day: a warm shower, a tidy space, ten minutes for yourself.','affordable-self-care-products-under-500']]}};
 const ARTICLES=[
 {slug:'5-step-beginner-skincare-routine',cat:'skincare',mins:6,title:'5-Step Beginner Skincare Routine',
 excerpt:'A simple routine with cleanser, moisturiser and sunscreen at its core, and how to add one active at a time.',
@@ -225,7 +228,7 @@ html:`<div class="wrap"><div class="pagehead"><h1>The blog</h1><p>Practical, beg
 contact:()=>({title:'Contact us | Glow & Balance',desc:'Send the Glow & Balance team a question, idea or piece of feedback.',
 html:`<div class="wrap"><div class="pagehead"><h1>Contact us</h1><p>Have a question, an idea for a guide, or something to tell us? Send a message below.</p></div>
 <div class="form-card">
-<form class="formsubmit-form" action="https://formsubmit.co/kajalbvceow@gmail.com" method="POST">
+<form class="formsubmit-form" action="https://formsubmit.co/kajalbvcoew@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="New Glow & Balance Contact Message">
 <input type="hidden" name="_template" value="table">
 <div class="field"><label for="c-name">Name</label><input id="c-name" type="text" name="Name" autocomplete="name" required></div>
@@ -240,10 +243,10 @@ html:`<div class="wrap"><div class="pagehead"><h1>Thank you</h1><p>Your message 
 <p><a class="btn" href="#/">Back to Home</a> <a class="btn light" href="#/blog">Browse the blog</a></p></div>`}),
 newsletter:()=>({title:'Weekly self-care tip newsletter | Glow & Balance',desc:'Sign up for one simple self-care tip a week from Glow & Balance.',
 html:`<div class="wrap"><div class="pagehead"><h1>The Glow &amp; Balance newsletter</h1><p>A short, friendly email each week with one habit, tip or product idea you can use right away.</p></div><section style="padding-top:1rem">${nl()}</section></div>`})};
-function cat(k){const c=CATS[k];return{title:c.title,desc:c.desc,html:`<div class="wrap"><div class="pagehead"><h1>${c.name}</h1><p>${c.intro}</p></div>${c.secs.map(s=>`<div class="topic"><h2>${s[0]}</h2><div><p>${s[1]}</p>${s[2]?`<a href="#/blog/${s[2]}">Read: ${A2(s[2]).title}</a>`:'<span class="small">Guide in progress</span>'}</div></div>`).join('')}<section>${nl()}</section></div>`}}
+function cat(k){const c=CATS[k];return{title:c.title,desc:c.desc,html:`<div class="wrap"><div class="pagehead"><h1>${c.name}</h1><p>${c.intro}</p></div>${c.secs.map(s=>`<div class="topic"><h2>${s[0]}</h2><div><p>${s[1]}</p>${s[2]?`<a href="#/blog/${s[2]}">Read: ${A2(s[2]).title}</a>`:(s[3]?`<ul class="mini">${s[3].map(t=>`<li>${t}</li>`).join('')}</ul>`:'')}</div></div>`).join('')}<section>${nl()}</section></div>`}}
 function feedbackForm(articleTitle){return `<div class="form-card">
 <h2>Was this guide helpful?</h2>
-<form class="formsubmit-form" action="https://formsubmit.co/kajalbvceow@gmail.com" method="POST">
+<form class="formsubmit-form" action="https://formsubmit.co/kajalbvcoew@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="New Glow & Balance Reader Feedback">
 <input type="hidden" name="_template" value="table">
 <div class="field"><label for="f-name">Name (optional)</label><input id="f-name" type="text" name="Name" autocomplete="name"></div>
@@ -278,4 +281,3 @@ addEventListener('hashchange',route);route();
 </script>
 </body>
 </html>
-<!-- Deployment test -->
